@@ -1,18 +1,26 @@
-import typing
-from collections import Counter
+from typing import List
+from collections import defaultdict, Counter
 
-def valid_anagram(txt1: str, txt2: str) -> bool:
-
-    length = 256 # which is long strings
-
-    if len(txt1) > length or len(txt2) > length:
-        # For checking if the length of any strings is large
-        return Counter(txt1) == Counter(txt2)
-
-    # Efficient for only small sized strings
-    else: return sorted(txt1) == sorted(txt2)
+def valid_anagram(s: str, t: str) -> bool:
+    # 1st solution using Counter O(n)
+    print(Counter(s), Counter(t))
+    
+    if Counter(s) == Counter(t):
+        return True
+    else:
+        return False
+    
+    # 2st using sorted() O(nlogn)
+    if sorted(s) == sorted(t):
+        return True
+    else:
+        return False
 
 if __name__ == "__main__":
-    txt1, txt2 = input("Enter strings: ").split(" ")
+    s, t = input("Enter 2 strings: ").split(" ")
 
-    print(valid_anagram(txt1, txt2))
+    print(valid_anagram(s ,t))
+
+
+
+
