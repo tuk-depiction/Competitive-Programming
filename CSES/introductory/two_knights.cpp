@@ -4,29 +4,35 @@ using namespace std;
 
 #define ll long long
 
-ll combination(int n)
+unsigned ll combination(ll k)
 {
-    
+    return (k*k*k*k - k*k) / 2; 
 }
-ll recurs(int k)
+
+unsigned ll gfunc(ll k)
 {
-    if (k == 1) cout << 0 << endl;
-    else if (k == 2) cout << 6 << endl;
-    else if (k == 3) cout << 28 << endl;
-    else if (k == 4) cout << 
-    else 
-    {
-        recurs(k-1);
-        cout << 
-    }
+   if (k == 1) return 8;
+   else return 8*k + gfunc(k-1);
 }
+
 int main()
 {
-    int n;
+    ll k;
 
-    cin >> n;
+    cin >> k;
 
-    formula = 
+    unsigned ll formula; 
 
-    for(int i = 0; i < n; i++)
+    for (ll i = 1; i <= k; i++)
+    {
+        if (i == 1) formula = 0;
+        else if (i == 2) formula = 6;
+        else 
+            formula = combination(i) - gfunc(i-2);
+
+        cout << formula << endl;
+    }
+    
+
+    return 0;
 }
